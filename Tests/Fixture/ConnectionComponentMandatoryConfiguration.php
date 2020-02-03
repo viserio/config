@@ -14,8 +14,9 @@ declare(strict_types=1);
 namespace Viserio\Component\Config\Tests\Fixture;
 
 use Viserio\Contract\Config\RequiresComponentConfig as RequiresComponentConfigContract;
+use Viserio\Contract\Config\RequiresMandatoryConfig as RequiresMandatoryConfigContract;
 
-class ConnectionComponentConfiguration implements RequiresComponentConfigContract
+class ConnectionComponentMandatoryConfiguration implements RequiresComponentConfigContract, RequiresMandatoryConfigContract
 {
     /**
      * {@inheritdoc}.
@@ -23,5 +24,10 @@ class ConnectionComponentConfiguration implements RequiresComponentConfigContrac
     public static function getDimensions(): iterable
     {
         return ['doctrine', 'connection'];
+    }
+
+    public static function getMandatoryConfig(): iterable
+    {
+        return ['orm_default'];
     }
 }

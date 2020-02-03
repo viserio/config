@@ -13,15 +13,23 @@ declare(strict_types=1);
 
 namespace Viserio\Component\Config\Tests\Fixture;
 
+use Viserio\Contract\Config\ProvidesDefaultConfig as ProvidesDefaultConfigContract;
 use Viserio\Contract\Config\RequiresComponentConfig as RequiresComponentConfigContract;
 
-class ConnectionComponentConfiguration implements RequiresComponentConfigContract
+class ConnectionComponentDefaultConfigConfiguration implements ProvidesDefaultConfigContract, RequiresComponentConfigContract
 {
-    /**
-     * {@inheritdoc}.
-     */
     public static function getDimensions(): iterable
     {
         return ['doctrine', 'connection'];
+    }
+
+    public static function getDefaultConfig(): iterable
+    {
+        return [
+            'params' => [
+                'host' => 'awesomehost',
+                'port' => '4444',
+            ],
+        ];
     }
 }

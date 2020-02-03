@@ -13,9 +13,10 @@ declare(strict_types=1);
 
 namespace Viserio\Component\Config\Tests\Fixture;
 
+use Viserio\Contract\Config\DeprecatedConfig as DeprecatedOptionsContract;
 use Viserio\Contract\Config\RequiresComponentConfig as RequiresComponentConfigContract;
 
-class ConnectionComponentConfiguration implements RequiresComponentConfigContract
+class ConnectionComponentWithNotFoundDeprecationKeyConfiguration implements DeprecatedOptionsContract, RequiresComponentConfigContract
 {
     /**
      * {@inheritdoc}.
@@ -23,5 +24,15 @@ class ConnectionComponentConfiguration implements RequiresComponentConfigContrac
     public static function getDimensions(): iterable
     {
         return ['doctrine', 'connection'];
+    }
+
+    /**
+     * {@inheritdoc}.
+     */
+    public static function getDeprecatedConfig(): iterable
+    {
+        return [
+            'params',
+        ];
     }
 }

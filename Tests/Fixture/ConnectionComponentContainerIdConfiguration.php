@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Viserio\Component\Config\Tests\Fixture;
 
-use Viserio\Contract\Config\RequiresComponentConfig as RequiresComponentConfigContract;
+use Viserio\Contract\Config\RequiresComponentConfigId as RequiresComponentConfigIdContract;
 
-class ConnectionComponentConfiguration implements RequiresComponentConfigContract
+class ConnectionComponentContainerIdConfiguration implements RequiresComponentConfigIdContract
 {
     /**
      * {@inheritdoc}.

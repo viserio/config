@@ -15,13 +15,13 @@ namespace Viserio\Component\Config\Tests\Fixture;
 
 use Viserio\Contract\Config\RequiresComponentConfig as RequiresComponentConfigContract;
 
-class ConnectionComponentConfiguration implements RequiresComponentConfigContract
+class PlainComponentConfiguration implements RequiresComponentConfigContract
 {
     /**
      * {@inheritdoc}.
      */
     public static function getDimensions(): iterable
     {
-        return ['doctrine', 'connection'];
+        return [];
     }
 }
